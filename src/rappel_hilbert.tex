@@ -1,0 +1,34 @@
+\section{Rappels sur les espaces de Hilbert}
+
+\begin{definition}
+	Un espace de Hilbert $\Hilbert$ réel (resp complexe) est un espace vectoriel
+	muni d'un produit scalaire (resp hermitienne) qui est un espace de Banach
+	pour la norme induite par le produit scalaire (resp hermitienne).
+\end{definition}
+
+\begin{theorem}
+	$\GSdual{\Hilbert} \GSid \Hilbert$ (identification)
+	\label{thm:repr_riesz}
+\end{theorem}
+
+Rappelons les notions d'application adjointe.
+
+\begin{definition}
+	Soient $E$ et $F$ deux espaces vectoriels. Soient $\GSdual{E}$ et
+	$\GSdual{F}$ leur espace dual respectif.
+	Soit $T \in \GScontinueHomo{E}{F}$. On définit l'adjointe de $T$, noté
+	$T^{*}$:
+	\begin{equation}
+		\GSfunction{T}{\GSdual{F}}{\GSdual{E}} : f^{*} \rightarrow T^{*}(f^{*})
+		= f \circ T
+		\label{def:adjointe_operator}
+	\end{equation}
+\end{definition}
+
+On a vu en algèbre linéaire que l'application adjointe est l'unique application
+tel que $\forall x, y \in E$ $\dotprod{x}{T(y)} = \dotprod{T^{*}(x)}{y}$.
+
+Dans le cas des espaces de Hilbert, après l'identification entre
+$\GSdual{\Hilbert}$ et $\Hilbert$, la définition de l'adjointe vue en algèbre
+linéaire est une propriété.
+
