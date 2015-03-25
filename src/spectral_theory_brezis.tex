@@ -24,3 +24,65 @@ de Banach.
 Cette demande n'est pas restrictive quand on est en dimension finie. En effet,
 comme nous travaillons sur $\complex$ ou $\real$, chaque espace de dimension
 finie est de Banach.
+
+\begin{definition}
+	Soit $T \in \GScontinueEndo{E}$.
+
+	On définit \textbf{le résolvant de $T$} par l'ensemble:
+
+	\begin{equation}
+		\resolvant{T} = \GSset{\lambda \in \complex}{T - \lambda
+			{Id}_{E} \in \GSisometryEndo{E}}
+			\label{def:resolvant_operator}
+	\end{equation}
+
+	On définit le complémentaire de $\rho(T)$ comme \textbf{le spectre de $T$}.
+	On a donc que le spectre de $T$:
+
+	\begin{equation}
+		\spectrum{T} = \GSset{\lambda \in \complex}{T - \lambda {Id}_{E}
+		\notin \GSisometryEndo{E}}
+		\label{def:spectrum_operator}
+	\end{equation}
+\end{definition}
+
+Le spectre est donc un sous-ensemble de $\complex$.
+
+Tout d'abord, montrons que le spectre et l'ensemble des valeurs propres sont
+deux notions différentes quand on travaille en dimension infinie. Cependant,
+comme nous l'avons vu, le spectre et les valeurs propres forment le même
+ensemble en dimension finie vu le théorème du rang.
+
+\begin{proposition}
+	Soit $T \in \GScontinueEndo{E}$.
+	Soit $\lambda \in \complex$ valeur propre de $T$.
+
+	Alors $\lambda \in \spectrum{T}$.
+\end{proposition}
+
+\begin{proof}
+	Si $\lambda$ est valeur propre, alors $T - \lambda Id_{E}$ n'est pas
+	inversible car il existe $v \in E$ tel que $v \neq 0_{E}$ et $T(v) - \lambda
+	v = 0$. Donc $v \in \ker{T - \lambda Id_{E}}$, et donc $T - \lambda Id_{E}$
+	n'est pas injective.
+\end{proof}
+
+Nous avons donc que le spectre de $T$ contient toutes les valeurs propres de
+$T$.
+Nous montrerons avec un exemple que nous avons déjà rencontré que le spectre ne
+contient pas uniquement les valeurs propres.
+
+Les isométries de $E$ sont étroitement liées à la norme définie sur $E$. On peut
+donc penser que le spectre diffère d'une norme à l'autre, ou du moins qu'elle a
+un lien avec la topologie de la norme.
+
+Le spectre est en effet liée à la topologie, et possède une propriété commune à
+chaque norme.
+
+Nous allons d'abord montrer un petit lemme 
+\begin{proposition}
+	Soit $T \in \GScontinueEndo{E}$.
+	Le spectre de $T$ est un compact de $\complex$.
+\end{proposition}
+
+

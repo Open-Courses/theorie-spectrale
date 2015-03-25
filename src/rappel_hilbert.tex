@@ -20,7 +20,7 @@ Rappelons les notions d'application adjointe.
 	$T^{*}$:
 	\begin{equation}
 		\GSfunction{T}{\GSdual{F}}{\GSdual{E}} : f^{*} \rightarrow T^{*}(f^{*})
-		= f \circ T
+	= f^{*} \circ T
 		\label{def:adjointe_operator}
 	\end{equation}
 \end{definition}
@@ -32,3 +32,50 @@ Dans le cas des espaces de Hilbert, après l'identification entre
 $\GSdual{\Hilbert}$ et $\Hilbert$, la définition de l'adjointe vue en algèbre
 linéaire est une propriété.
 
+Nous avons donc $\adjointe{T} \in \GScontinueEndo{\Hilbert}$.
+
+On peut alors définir la fonction 
+
+\begin{equation}
+	\GSfunction{\phi}{\GScontinueEndo{\Hilbert}}{\GScontinueEndo{\Hilbert}} : T \rightarrow
+	\adjointe{T}
+\end{equation}
+
+Cette fonction $\phi$ possède quelques propriétés
+
+\begin{enumerate}
+	\item $\forall S, T \in \GScontinueEndo{\Hilbert}$, $\phi(S + T) =
+		\phi(S) + \phi(T)$
+	\item $\forall S, T \in \GScontinueEndo{\Hilbert}$, $\phi(S \circ T) = \phi(T)
+		\circ \phi(S)$
+	\item $\forall S \in \GScontinueEndo{\Hilbert}$, $\forall \lambda \in
+		\complex$, $\phi(\lambda S) = \conjuguate{\lambda} \, \phi(S)$.
+\end{enumerate}
+
+Rappelons également quelques notions vues l'année passée.
+
+\begin{definition}
+	Soit $\Hilbert$ un espace de Hilbert.
+	Soit $\GSsequence{e}{n}{\integer} \subseteq \Hilbert$.
+
+	On dit que $\GSsequence{e}{n}{\integer}$ est \textbf{une famille
+	orthonormée} s'ils sont orthogonaux 2 à 2 et tous de norme $1$.
+\end{definition}
+
+\begin{definition}
+	Soit $\Hilbert$ un espace de Hilbert.
+	Soit $\GSsequence{e}{n}{\integer} \subseteq \Hilbert$ une famille
+	orthonormée.
+
+	On dit que $\GSsequence{e}{n}{\integer}$ est \textbf{une base de Hilbert} si
+
+	\begin{equation}
+	\forall x \in \Hilbert, \, x = \displaystyle \sum_{n = -\infty}^{\infty}
+	\dotprod{x}{e_{n}} e_{n}
+	\end{equation}
+
+\end{definition}
+
+\begin{proposition}
+	
+\end{proposition}
