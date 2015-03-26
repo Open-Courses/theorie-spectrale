@@ -1,40 +1,88 @@
 \section{Rappels sur les espaces de Hilbert}
 
+\subsection{Définitions}
+
 \begin{definition}
 	Un espace de Hilbert $\Hilbert$ réel (resp complexe) est un espace vectoriel
 	muni d'un produit scalaire (resp hermitienne) qui est un espace de Banach
-	pour la norme induite par le produit scalaire (resp hermitienne).
+	pour la norme induite par le produit scalaire (resp hermitien).
 \end{definition}
 
-\begin{theorem}
-	$\GSdual{\Hilbert} \GSid \Hilbert$ (identification)
+\begin{definition}
+	Un produit scalaire hermitien est une fonction
+	
+	\begin{equation}
+		\GSfunction{\dotprod{.}{.}}{\Hilbert \cartprod
+		\Hilbert}{\complex} :
+		(x, y) \rightarrow \dotprod{x}{y}
+	\end{equation}
+
+	vérifiant:
+
+	\begin{enumerate}
+		\item anti-linéaire en la première variable
+		\item linéaire en la deuxième variable
+		\item $\forall x, y \in \Hilbert, \, \dotprod{x}{y} =
+			\conjuguate{\dotprod{y}{x}}$ (symétrie hermitienne)
+		\item $\forall x \in \Hilbert, \, \dotprod{x}{x} \geq 0$
+		\item $\dotprod{x}{x} = 0 \equiv x = 0_{\Hilbert}$
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem} [Représentation de Riesz]
 	\label{thm:repr_riesz}
+	On a $\Hilbert \GSid \GSdual{\Hilbert}$.
+	L'identification est donné par l'application:
+
+	\begin{equation}
+		\GSfunction{i_{\Hilbert}}{\Hilbert}{\GSdual{\Hilbert}} : x \rightarrow
+		i_{\Hilbert}(x) = x^{*}
+	\end{equation}
+	où $\GSfunction{x^{*}}{\Hilbert}{\mathbb{K}} : y \rightarrow
+	\dotprod{x}{y}$
 \end{theorem}
 
-Rappelons les notions d'application adjointe.
+\subsection{Ajointe d'un opérateur}
+
+Rappelons les notions d'application adjointe dans le cas d'espaces vectoriels
+quelconques.
 
 \begin{definition}
 	Soient $E$ et $F$ deux espaces vectoriels. Soient $\GSdual{E}$ et
 	$\GSdual{F}$ leur espace dual respectif.
-	Soit $T \in \GScontinueHomo{E}{F}$. On définit l'adjointe de $T$, noté
-	$T^{*}$:
+	Soit $T \in \GScontinueHomo{E}{F}$. On définit \textbf{l'adjointe de $T$},
+	noté $T^{*}$:
 	\begin{equation}
-		\GSfunction{T}{\GSdual{F}}{\GSdual{E}} : f^{*} \rightarrow T^{*}(f^{*})
+		\GSfunction{T}{\GSdual{F}}{\GSdual{E}} : f^{*} \rightarrow \adjointe{T}(f^{*})
 	= f^{*} \circ T
 		\label{def:adjointe_operator}
 	\end{equation}
 \end{definition}
 
-On a vu en algèbre linéaire que l'application adjointe est l'unique application
-tel que $\forall x, y \in E$ $\dotprod{x}{T(y)} = \dotprod{T^{*}(x)}{y}$.
+Dans le cas de deux espaces de Hilbert $\Hilbert$ et $\mathcal{K}$, après
+identification entre $\Hilbert$ et $\GSdual{\Hilbert}$ (resp. $\mathcal{K}$ et
+$\GSdual{\mathcal{K}}$) on obtient une définition équivalente plus facile à
+manipuler:
 
-Dans le cas des espaces de Hilbert, après l'identification entre
-$\GSdual{\Hilbert}$ et $\Hilbert$, la définition de l'adjointe vue en algèbre
-linéaire est une propriété.
+\begin{definition}
+	Soit $\Hilbert$ et $\mathcal{K}$ deux espaces de Hilbert.
+	Soit $T \in \GScontinueHomo{\Hilbert}{\mathcal{K}}$.
+	\textbf{L'adjointe de $T$}, notée $\adjointe{T}$, est l'unique application
+	de $\GScontinueHomo{\mathcal{K}}{\Hilbert}$ tel que
 
-Nous avons donc $\adjointe{T} \in \GScontinueEndo{\Hilbert}$.
+	\begin{equation}
+		\forall x \in \Hilbert, \, \forall y \in \mathcal{K}, \,
+		{\dotprod{T(x)}{y}}_{\mathcal{K}} = {\dotprod{x}{\adjointe{T}(y)}}_{\Hilbert}
+	\end{equation}
+\end{definition}
 
-On peut alors définir la fonction 
+Nous nous intéresserons particulièrement au cas $\Hilbert = \mathcal{K}$.
+
+\begin{proposition}
+	Les deux définitions de l'adjointe coincident après identification.
+\end{proposition}
+
+On peut alors définir l'application:
 
 \begin{equation}
 	\GSfunction{\phi}{\GScontinueEndo{\Hilbert}}{\GScontinueEndo{\Hilbert}} : T \rightarrow
@@ -51,6 +99,21 @@ Cette fonction $\phi$ possède quelques propriétés
 	\item $\forall S \in \GScontinueEndo{\Hilbert}$, $\forall \lambda \in
 		\complex$, $\phi(\lambda S) = \conjuguate{\lambda} \, \phi(S)$.
 \end{enumerate}
+
+On peut alors classer les opérateurs suivant leurs relations avec leur adjointe.
+
+\begin{definition}
+	Soit $T \in \GScontinueEndo{\Hilbert}$ et $\adjointe{T}$ son adjointe. On
+	dit que
+	\begin{itemize}
+		\item $T$ est \textbf{normal} si $T \circ \adjointe{T} = \adjointe{T}
+			\circ T$.
+		\item $T$ est \textbf{unitaire} si $T^{-1} = \adjointe{T}$.
+		\item $T$ est \textbf{autoadjointe} ou \textbf{hermitique} si $T =
+			\adjointe{T}$.
+	\end{itemize}
+\end{definition}
+\subsection{Base hilbertienne}
 
 Rappelons également quelques notions vues l'année passée.
 
@@ -73,9 +136,7 @@ Rappelons également quelques notions vues l'année passée.
 	\forall x \in \Hilbert, \, x = \displaystyle \sum_{n = -\infty}^{\infty}
 	\dotprod{x}{e_{n}} e_{n}
 	\end{equation}
-
 \end{definition}
 
-\begin{proposition}
-	
-\end{proposition}
+% Tout espace de Hilbert admet une base hilbertienne.
+

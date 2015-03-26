@@ -1,29 +1,73 @@
-\section{Théorie spectrale : Brezis}
+\section{Théorie spectrale: Brezis}
 
-Le bus de cette section va être de retrouver certaines propriétés que nous avons
-en dimension finie pour les opérateurs linéaires, et qui nous ont permis de
-construire la théorie spectrale en dimension finie, mais en dimension
-quelconque.
+Le bus de cette section va être de retrouver certaines propriétés en dimension
+quelconque que nous avons en dimension finie pour les opérateurs linéaires, et
+qui nous ont permis de construire la théorie spectrale en dimension finie.
 
-Prenons un opérateur $T \in \GScontinueEndo{E}$ où $E$ est un espace vectoriel
-normé.  Nous allons chercher des opérateurs qui vont pouvoir répondre aux
-propriétés
+%Pour la première propriété, nous voulons que si $T$ est bijective, alors elle
+%est un isomorphisme de $E$. Cette propriété est acceptée si $E$ est un espace de
+%Banach. Nous allons donc poser comme première condition que $E$ soit un espace
+%de Banach.
+
+%Cette demande n'est pas restrictive quand on est en dimension finie. En effet,
+%comme nous travaillons sur $\complex$ ou $\real$, chaque espace de dimension
+%finie est de Banach.
+
+%Un type d'opérateur, appelé \textbf{opérateur compacte}, répond à ces critères.
+
+% Rappel de relativement compact
+
+\subsection{Opérateur compact}
+
+\begin{definition}
+	Soit $T \in \GScontinueHomo{E}{F}$ où $E$ et $F$ sont deux espaces
+	vectoriels normés.
+
+	Alors $T$ est dit \textbf{compacte} si $T(B_{E})$ est relativement compacte
+	dans $F$.
+\end{definition}
+
+De manière équivalente, on peut définir les opérateurs compacts comme les
+opérateurs envoyant toutes parties bornées dans une partie relativement
+compacte.
+
+On note $\GScompactHomo{E}{F}$ l'ensemble des opérateurs compactes.
+
+\begin{proposition}
+	$\GScompactHomo{E}{F}$ est un sous-espace vectoriel fermé de
+	$\GScontinueHomo{E}{F}$.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{proposition}
+	Soit $T \in \GScompactEndo{E}$. Alors:
 
 \begin{enumerate}
-	\item $T$ est injective $\equiv$ $T$ est surjective $\equiv$ $T \in
-		Isom(E)$.
-	\item $\ker(T)$ est de dimension finie.
-	\item $Im(T)$ est fermé et 
+	\item $\ker(Id_{E} - T)$ est de dimension finie.
+	\item $(Id_{E} - T)$ est injective $\equiv$ $(Id_{E} - T)$ est surjective
+		$\equiv$ $(Id_{E} - T) \in Isom(E)$.
+	\item $Im(Id_{E} - T)$ est fermé et $\GSortho{\ker(Id_{E} - \adjointe{T})} = Im(Id_{E}
+		- T)$.
 \end{enumerate}
+\end{proposition}
 
-Pour la première propriété, nous voulons que si $T$ est bijective, alors elle
-est un isomorphisme de $E$. Cette propriété est acceptée si $E$ est un espace de
-Banach. Nous allons donc poser comme première condition que $E$ soit un espace
-de Banach.
+\begin{proof}
+	
+\end{proof}
 
-Cette demande n'est pas restrictive quand on est en dimension finie. En effet,
-comme nous travaillons sur $\complex$ ou $\real$, chaque espace de dimension
-finie est de Banach.
+\begin{definition}
+	Soit $T \in \GScompactEndo{E}$. On dit que $T$ est \textbf{de rang fini}
+	si son image $Im(T)$ est de dimension finie.
+\end{definition}
+
+\begin{proposition}
+	
+\end{proposition}
+
+\subsection{Spectre d'un oéprateur compact}
 
 \begin{definition}
 	Soit $T \in \GScontinueEndo{E}$.
@@ -32,7 +76,7 @@ finie est de Banach.
 
 	\begin{equation}
 		\resolvant{T} = \GSset{\lambda \in \complex}{T - \lambda
-			{Id}_{E} \in \GSisometryEndo{E}}
+			{Id}_{E} \in \GSisomorphism{E}}
 			\label{def:resolvant_operator}
 	\end{equation}
 
@@ -41,7 +85,7 @@ finie est de Banach.
 
 	\begin{equation}
 		\spectrum{T} = \GSset{\lambda \in \complex}{T - \lambda {Id}_{E}
-		\notin \GSisometryEndo{E}}
+		\notin \GSisomorphism{E}}
 		\label{def:spectrum_operator}
 	\end{equation}
 \end{definition}
@@ -79,10 +123,9 @@ un lien avec la topologie de la norme.
 Le spectre est en effet liée à la topologie, et possède une propriété commune à
 chaque norme.
 
-Nous allons d'abord montrer un petit lemme 
 \begin{proposition}
 	Soit $T \in \GScontinueEndo{E}$.
 	Le spectre de $T$ est un compact de $\complex$.
 \end{proposition}
 
-
+Avant de montrer cette proposition, nous allons démontrer quelques lemmes.

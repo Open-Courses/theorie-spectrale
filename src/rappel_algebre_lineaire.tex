@@ -1,0 +1,50 @@
+\section{Rappels d'algèbre linéaire}
+
+Soit $E$ un espace vectoriel de \textit{dimension finie} sur un corps
+$\mathbb{K}$.
+
+\begin{proposition}
+	$\GSendomorphism{E} = \GScontinueEndo{E}$
+	(Chaque application linéaire est continue)
+\end{proposition}
+
+\begin{proof}
+\end{proof}
+
+
+On gardera la notation $\GSendomorphism{E}$ pour être cohérent avec le cours
+d'algèbre linéaire II.
+
+\begin{definition}
+	\label{def:alg_lin_valeur_propre}
+	Soit $f \in \GSendomorphism{E}$.
+	Soit $\lambda \in \mathbb{K}$.
+	On dit que $\lambda$ est \textbf{valeur propre} de $f$ si $\ker(f - \lambda
+		Id_{E}) \neq \left\{ 0_{E} \right\}$.
+	
+	On appelle $\ker(f - \lambda Id_{E})$ \textbf{le sous-espace propre associé
+	à [la valeur propre] $\lambda$}
+\end{definition}
+
+\begin{definition}
+	\label{def:alg_lin_vecteur_propre}
+	Soit $f \in \GSendomorphism{E}$
+	Soit $v \in E$.
+	On dit que $v$ est \textbf{vecteur propre} de $E$ s'il est contenu dans un
+	sous-espace propre.
+\end{definition}
+
+\begin{proposition}
+	Soit $f \in \GSendomorphism{E}$.
+	Alors les assertions suivantes sont équivalentes:
+
+	\begin{enumerate}
+		\item $f$ est injective
+		\item $f$ est surjective
+		\item $f \in \GSisomorphism{E}$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Application du théorème du rang.
+\end{proof}
