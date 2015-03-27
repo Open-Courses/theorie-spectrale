@@ -91,6 +91,7 @@ On peut alors définir l'application:
 
 Cette fonction $\phi$ possède quelques propriétés
 
+\begin{proposition}
 \begin{enumerate}
 	\item $\forall S, T \in \GScontinueEndo{\Hilbert}$, $\phi(S + T) =
 		\phi(S) + \phi(T)$
@@ -98,7 +99,14 @@ Cette fonction $\phi$ possède quelques propriétés
 		\circ \phi(S)$
 	\item $\forall S \in \GScontinueEndo{\Hilbert}$, $\forall \lambda \in
 		\complex$, $\phi(\lambda S) = \conjuguate{\lambda} \, \phi(S)$.
+	\item $\phi$ est involutive ($\phi \circ \phi =
+		Id_{\GScontinueEndo{\Hilbert}}$)
 \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
 
 On peut alors classer les opérateurs suivant leurs relations avec leur adjointe.
 
@@ -113,6 +121,22 @@ On peut alors classer les opérateurs suivant leurs relations avec leur adjointe
 			\adjointe{T}$.
 	\end{itemize}
 \end{definition}
+
+\begin{remarque}
+	Un opérateur unitaire est en particulier normal. Et pour un opérateur
+	unitaire, on a $T \circ \adjointe{T} = \adjointe{T} \circ T =
+	Id_{\Hilbert}$.
+\end{remarque}
+
+\begin{exercice}
+	Montrer qu'on a, pour tout sous-espace $G$ de $\Hilbert$:
+	$T(G) \subseteq G \equiv T^{*}(\GSortho{G}) \subseteq \GSortho{G}$.
+\end{exercice}
+
+\begin{exercice}
+	Soit $T$ un opérateur normal. Alors $\ker(T) = \ker(\adjointe{T})$.
+\end{exercice}
+
 \subsection{Base hilbertienne}
 
 Rappelons également quelques notions vues l'année passée.
