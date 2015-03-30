@@ -11,11 +11,10 @@ Ceux-ci ont des caractéristiques intéressantes: l'injectivité et le surjectiv
 ne sont plus deux choses disjointes (comme en dimension finie), leurs valeurs
 propres et leur spectre coincident en dehors de l'origine (ce qui n'est pas
 toujours la cas en dimension infinie), et forment un sous-espace fermé de tous
-les opérateurs.
+les opérateurs linéaires continus.
 
 Nous allons principalement travailler avec des espaces de Banach pour éviter de
-se soucier des opérateurs bijective, linéaire et continues qui ne sont pas des
-isomorphismes.
+se soucier des opérateurs continus bijectifs qui ne sont pas bicontinus.
 
 %Pour la première propriété, nous voulons que si $T$ est bijective, alors elle
 %est un isomorphisme de $E$. Cette propriété est acceptée si $E$ est un espace de
@@ -32,7 +31,16 @@ Rappelons qu'on peut définir un ensemble \textbf{relativement compact} par la
 définition d'être contenue dans un compact, ou de manière équivalente, que son
 adhérence est compacte.
 
-\subsection{Opérateur compact dans les espaces de Banach réels ou complexes}
+Quand il n'est pas spécifie qu'on travaille exclusivement sur $\mathbb{K} =
+\real$ ou $\complex$, cela signifie que c'est valable pour n'importe quel espace
+vectoriel de Banach.
+
+$E$ sera un espace de Banach, et $\Hilbert$ un espace de Hilbert.  Rappelons
+qu'un espace de Hilbert est un espace de Banach en particulier, donc les
+propriétés vraies dans les espaces de Banach sont vraies dans les espaces de
+Hilbert.
+
+\subsection{Opérateur compact dans les espaces de Banach}
 
 \begin{definition}
 	Soit $T \in \GScontinueHomo{E}{F}$ où $E$ et $F$ sont deux espaces
@@ -45,8 +53,7 @@ adhérence est compacte.
 De manière équivalente, on peut définir les opérateurs compacts comme les
 opérateurs envoyant toutes parties bornées dans une partie relativement
 compacte (exercice).
-
-En particulier, on peut utiliser la définition avec la boule unité ouverte peut
+En particulier, la définition avec la boule unité ouverte peut
 être remplacée par la boule unité fermée.
 
 On note $\GScompactHomo{E}{F}$ l'ensemble des opérateurs compactes.
@@ -63,7 +70,7 @@ On note $\GScompactHomo{E}{F}$ l'ensemble des opérateurs compactes.
 	-- Montrons d'abord que c'est un sous-espace vectoriel.
 
 	Si on prend deux opérateur compacts $S$ et $T$, ainsi que $\lambda \in
-	\complex$, nous devons montrer que $S + T$ est compact ainsi que $\lambda S$
+	\mathbb{K}$, nous devons montrer que $S + T$ est compact ainsi que $\lambda S$
 	est compact.
 
 	On a $\adh{(S + T)(\GSunitBoule{E})} =  \adh{S(\GSunitBoule{E}) +
@@ -126,43 +133,201 @@ La propriété d'être un opérateur compact est aussi stable par composition.
 	
 \end{proof}
 
-% ----- Opérateurs de Fredholm
-
 \begin{proposition}
-	Soit $T \in \GScompactEndo{E}$. Alors:
-
-\begin{enumerate}
-	\item $\ker(Id_{E} - T)$ est de dimension finie.
-	\item $(Id_{E} - T)$ est injective $\equiv$ $(Id_{E} - T)$ est surjective
-		$\equiv$ $(Id_{E} - T) \in Isom(E)$.
-	\item $Im(Id_{E} - T)$ est fermé et $\GSortho{\ker(Id_{E} - \adjointe{T})} = Im(Id_{E}
-		- T)$.
-\end{enumerate}
+	Soit $E$ et $F$ de dimension finie.
+	
+	Alors $\GSfiniteRankHomo{E}{F} = \GScompactHomo{E}{F} =
+	\GScontinueHomo{E}{F} = \GShomomorphisme{E}{F}$
 \end{proposition}
 
 \begin{proof}
-	
+	Evident d'après les propositions précédentes
 \end{proof}
 
-% ----- Proposition sur l'adjointe de T où T est compact.
-%\begin{proposition}
-	%Soit $T \in \GScontinueEndo{\Hilbert}$.
+On remarque donc que toutes ces classes d'opérateurs ne forment qu'une seule et
+même classe quand nous sommes en dimension finie. Donc, les propositions qu'on
+verra concernant les opérateurs compacts restent vrais dans le cas où les
+espaces de vectoriels sont de dimension finie.
 
-	%Alors $T \in \GScompactEndo{\Hilbert} \equiv \adjointe{T} \in
-	%\GScompactEndo{\GSortho{\Hilbert}}$.
+% Vrai ??
+Remarquons une chose importante: nous devons travailler sur des espaces de
+Banach!
+
+% ----- Opérateurs de Fredholm
+
+\begin{definition} [Non officielle]
+	Soit $K \in \GScontinueEndo{E}$. On appelle $T = Id_{E} - K$
+	\textbf{l'opérateur de point fixe de $K$}.
+	
+	Cette définition est motivée par le fait qu'on peut voir $\ker(T)$ comme
+	l'ensemble des points fixes de $K$.
+\end{definition}
+
+\begin{proposition}
+	\label{prop:fixe_point_closed_injective}
+	Soit $K \in \GScompactEndo{E}$, et $T$ son opérateur de point fixe. Soit $F$
+	fermé tel que  est injectif sur $F$.
+
+	Alors il existe une constance $c > 0$ tel que $\forall x \in F$, $\norm{x}
+	\leq c \norm{T(x)}$.
+
+	De plus $Im(F)$ est fermé.
+\end{proposition}
+
+\begin{remarque}
+	-- Ce n'est pas parce $F$ est fermé que $T(F)$ est fermé, même si $T$ est
+	continue.
+\end{remarque}
+
+\begin{proof}
+	% TODO 
+\end{proof}
+
+\begin{proposition}
+	Soit $K \in \GScompactEndo{E}$, et $T$ son opérateur de point fixe. Alors
+	$\ker(T)$ est de dimension finie et $Im(T)$ est fermé.
+\end{proposition}
+
+\begin{proof}
+	Nous allons considérer $\ker(T)$ comme un espace vectoriel normé, et montrer
+	que sa boule unité est compacte. On aura donc que $\ker(T)$ est de
+	dimension finie.
+
+	Soit $F = \ker(T)$.
+	Prenons un $x \in \GSclosedUnitBoule{F}$. Alors $x = K(x)$ et $\norm{x} = 1$
+	par définition de $F$.
+	Donc $x \in K(E)$, et plus particulièrement, $x \in
+	K(\GSclosedUnitBoule{E})$ car $\norm{x} = 1$.
+	On en conclut que $\GSclosedUnitBoule{F} \subseteq
+	K(\GSclosedUnitBoule{E})$.
+
+	Par hypothèse, $K$ est un opérateur compact, donc
+	$\adh{K(\GSclosedUnitBoule{E})}$ est compact. D'où, $\GSclosedUnitBoule{F}$
+	est contenu dans un compact, est alors relativement compact, et
+	$\adh{\GSclosedUnitBoule{F}}$ est compact par définition de relativement
+	compact.
+
+	$\GSclosedUnitBoule{F}$ étant fermé, $\adh{\GSclosedUnitBoule{F}} =
+	\GSclosedUnitBoule{F}$. D'où $\GSclosedUnitBoule{F}$ est compact.
+
+	% TODO : expliquer l'existence du supplémentaire
+	On sait alors qu'il existe un supplémentaire fermé $G$ tel que $E = \ker{T}
+	\oplus G$. D'où, $T(E) = T(G)$.
+
+	Par \ref{prop:fixe_point_closed_injective}, comme $T$ est injective sur $G$,
+	on a $T(E)$ qui est fermé.
+\end{proof}
+
+%\begin{proposition}
+	%Soit $T \in \GScontinueEndo{E}$.
+
+	%Alors $T \in \GScompactEndo{E} \equiv \adjointe{T} \in
+	%\GScompactEndo{\GSdual{E}}$.
 %\end{proposition}
 
 %\begin{proof}
 	
 %\end{proof}
 
-\subsection{Spectre d'un oéprateur compact}
+\begin{exercice}
+	Soit $F$ un sous-espace vectoriel fermé de $E$, et $x \in F$, $\alpha \in
+	\mathbb{K}$, $y \notin F$. Alors:
 
-Nous travaillerons par la suite sur le même espace de départ et d'arrivée. $E$
-sera un espace de Banach, et $\Hilbert$ un espace de Hilbert.
-Rappelons qu'un espace de Hilbert est un espace de Banach en particulier, donc
-les propriétés vraies dans les espaces de Banach sont vraies dans les espaces de
-Hilbert.
+	% TODO !!!!
+	-- $\exists x_{0} \in F$ tel que $d(y, F) = d(x_{0}, F)$
+
+	-- $d(\alpha y, F) = \alpha d(y, F)$
+	
+	-- $d(y - x, F) = d(y, F)$
+\end{exercice}
+
+\begin{proposition}
+	Soit $E$ un espace vectoriel. Soit $F$ et $G$ deux sous-espaces vectoriels
+	de $E$ tel que $F \subsetneq G$
+
+	Supposons $F$ est fermé.
+
+	Alors $\forall \epsilon \in ]0, 1[$, $\exists y \in G$, $\norm{y} = 1$ et
+	$d(y, F) > 1 - \epsilon$
+
+	En d'autres termes, on peut se rapprocher autant qu'on le souhaite de $F$
+	tout en restant \textbf{strictement} dans $G$. (La norme n'étant pas
+	importante car il suffit de normaliser).
+\end{proposition}
+
+\begin{proof}
+	Soient $\epsilon \in ]0, 1[$, et $y_{0} \in G$ tel que $y_{0} \notin F$.
+	
+	On a $d(y_{0}, F) > 0$, et en particulier, on a donc $d(y_{0}, F) < 
+	\frac{d(y_{0},F)}{1 - \epsilon}$ car $\epsilon < 1$.
+
+	Comme $F$ est fermé, on a un $x_{0} \in F$ tel que $d(y_{0}, x_{0}) =
+	d(y_{0}, F)$ (et $d(y_{0}, x_{0}) = \norm{y_{0} - x_{0}}$).
+
+	Prenons $y = \frac{(x_{0} - y_{0})}{\norm{x_{0} - y_{0}}}$. On a:
+
+	\begin{align}
+		d(y, F) &= d(\frac{(x_{0} - y_{0})}{\norm{x_{0} - y_{0}}}, F) \\
+		&= \norm{x_{0} - y_{0}}^{-1} d(x_{0} - y_{0}, F) \\
+		&= \norm{x_{0} - y_{0}}^{-1} d(y_{0}, F) \\
+		&> 1 - \epsilon
+	\end{align}
+\end{proof}
+
+\begin{proposition}
+	Soit $K \in \GScontinueEndo{E}$ et $T$ son opérateur de point fixe.
+	
+	Alors il n'existe de pas de chaine infinie strictement croissante de sev
+	fermés $\GSsequence{F}{n}{\naturel}$ tel que $T(F_{n + 1}) \subseteq
+	F_{n}$.
+
+	De même, il n'existe pas de chaine infinie strictement décroissante de
+	sev fermés $\GSsequence{F}{n}{\naturel}$ tel que $T(F_{n}) \subseteq F_{n +
+	1}$.
+\end{proposition}
+
+\begin{proof}
+	% TODO
+\end{proof}
+
+\begin{corollary}
+	Soit $K \in \GScompactEndo{E}$ et $T$ son opérateur de point fixe.
+
+	Alors $\exists n_{0} \in \naturel$ tel que $\ker(T^{n}) = \ker(T^{n_{0}})$
+	pour tout $n > n_{0}$.
+
+	De même, on a un même $m_{0} \in \naturel$ tel que pour tout $m > m_{0}$,
+	$Im(T^{m}) = Im(T^{m_{0}})$.
+
+	En d'autres termes, la suite des noyaux et des images sont stationnaires.
+\end{corollary}
+
+\begin{proof}
+	
+\end{proof}
+
+Nous sommes maintenant prêt à prouver l'une de nos motivations.
+
+\begin{proposition}
+	\label{prop:equiv_inj_surj_bij}
+	Soit $K \in \GScompactEndo{E}$, et $T$ son opérateur de point fixe.
+
+	Alors on a:
+
+	$T$ injectif $\equiv$ $T$ surjectif $\equiv$ $T \in \GSisomorphism{E}$.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+\subsection{Opérateur compact dans un espace de Hilbert}
+
+Prop 2.1.7 !!!!
+
+\subsection{Spectre d'un opérateur compact dans un espace de Banach}
+
+Rappelons que la boule unité fermée est compacte uniquement en dimension finie.
 
 \begin{definition}
 	Soit $T \in \GScontinueEndo{E}$.
