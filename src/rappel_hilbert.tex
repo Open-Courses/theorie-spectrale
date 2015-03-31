@@ -4,7 +4,7 @@
 
 \begin{definition}
 	Un espace de Hilbert $\Hilbert$ réel (resp complexe) est un espace vectoriel
-	muni d'un produit scalaire (resp hermitienne) qui est un espace de Banach
+	muni d'un produit scalaire (resp hermitien) qui est un espace de Banach
 	pour la norme induite par le produit scalaire (resp hermitien).
 \end{definition}
 
@@ -48,6 +48,7 @@ Rappelons les notions d'application adjointe dans le cas d'espaces vectoriels
 quelconques.
 
 \begin{definition}
+	\label{def:adjointe_dual_space}
 	Soient $E$ et $F$ deux espaces vectoriels. Soient $\GSdual{E}$ et
 	$\GSdual{F}$ leur espace dual respectif.
 	Soit $T \in \GScontinueHomo{E}{F}$. On définit \textbf{l'adjointe de $T$},
@@ -65,6 +66,7 @@ $\GSdual{\mathcal{K}}$) on obtient une définition équivalente plus facile à
 manipuler:
 
 \begin{definition}
+	\label{def:adjointe_hilbert_space}
 	Soit $\Hilbert$ et $\mathcal{K}$ deux espaces de Hilbert.
 	Soit $T \in \GScontinueHomo{\Hilbert}{\mathcal{K}}$.
 	\textbf{L'adjointe de $T$}, notée $\adjointe{T}$, est l'unique application
@@ -76,7 +78,9 @@ manipuler:
 	\end{equation}
 \end{definition}
 
-Nous nous intéresserons particulièrement au cas $\Hilbert = \mathcal{K}$.
+Nous nous intéresserons particulièrement au cas $\Hilbert = \mathcal{K}$ (bien
+que certaines propositions soient vraies quand on prend deux espaces de hilbert
+différents.
 
 \begin{proposition}
 	Les deux définitions de l'adjointe coincident après identification.
@@ -105,7 +109,7 @@ Cette fonction $\phi$ possède quelques propriétés
 \end{proposition}
 
 \begin{proof}
-	
+	On utilise la définition \ref{def:adjointe_hilbert_space}.
 \end{proof}
 
 On peut alors classer les opérateurs suivant leurs relations avec leur adjointe.
@@ -135,6 +139,13 @@ On peut alors classer les opérateurs suivant leurs relations avec leur adjointe
 
 \begin{exercice}
 	Soit $T$ un opérateur normal. Alors $\ker(T) = \ker(\adjointe{T})$.
+\end{exercice}
+
+\begin{exercice}
+	\label{ex:ker_image_ortho_adjointe}
+	Soit $T \in \GScontinueEndo{\Hilbert}$, et $\adjointe{T}$.
+
+	Alors $\ker{\adjointe{T}} = \GSortho{(Im(T))}$.
 \end{exercice}
 
 \subsection{Base hilbertienne}

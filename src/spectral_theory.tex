@@ -15,6 +15,15 @@ les opérateurs linéaires continus.
 
 Nous allons principalement travailler avec des espaces de Banach pour éviter de
 se soucier des opérateurs continus bijectifs qui ne sont pas bicontinus.
+On étudiera les opérateurs de points fixes des opérateurs compacts. Ceux-ci ont
+des caractéristiques intéressantes: l'injectivité et le surjectivité ne sont
+plus deux choses disjointes (comme en dimension finie), leurs valeurs propres et
+leur spectre coincident en dehors de l'origine (ce qui n'est pas toujours la cas
+en dimension infinie), et forment un sous-espace fermé de tous les opérateurs.
+
+Nous allons principalement travailler avec des espaces de Banach pour éviter de
+se soucier des opérateurs bijectifs, linéaires et continus qui ne sont pas des
+isomorphismes.
 
 %Pour la première propriété, nous voulons que si $T$ est bijective, alors elle
 %est un isomorphisme de $E$. Cette propriété est acceptée si $E$ est un espace de
@@ -58,12 +67,32 @@ En particulier, la définition avec la boule unité ouverte peut
 
 On note $\GScompactHomo{E}{F}$ l'ensemble des opérateurs compactes.
 
+Montrons d'abord qu'en dimension finie, tous les opérateurs linéaires sont
+compacts.
+
+\begin{proposition}
+	Soit $T \in \GShomomorphisme{E}{F}$ où $E$ et $F$ sont de dimension finie.
+
+	Alors $T \in \GScompactHomo{E}{F}$.
+\end{proposition}
+
+\begin{proof}
+	Comme $E$ est de dimension finie, la boule unitée est compacte. Par le
+	théorème des bornes atteintes, $T(\GSclosedUnitBoule{E})$ est un compact.
+	Donc $T$ est compact.
+\end{proof}
+
+On a donc en particulier que $\GScompactHomo{E}{F}$ est fermé en dimension
+finie. On peut montrer que cette propriété est vraie, qu'importe la dimension de
+$E$ et $F$.
+
 \begin{proposition}
 	$\GScompactHomo{E}{F}$ est un sous-espace vectoriel fermé de
 	$\GScontinueHomo{E}{F}$.
 
 	C'est-à-dire que la propriété d'être compacte est 'stable par passage à la
-	limite'.
+	limite', ou encore que toute suite convergente d'opérateurs compacts a
+	comme limite un opérateur compact.
 \end{proposition}
 
 \begin{proof}
@@ -81,7 +110,7 @@ On note $\GScompactHomo{E}{F}$ l'ensemble des opérateurs compactes.
 
 	On a $(\lambda S)(\GSunitBoule{E}) = S(\lambda \GSunitBoule{E})$ par
 	linéarité de $S$. Comme $S$ est compact et $\lambda \GSunitBoule{E}$ est
-	bornée, alors $S(\lambda \GSunitBoule{E})$ est relativement compact. Donc
+	bornée, $S(\lambda \GSunitBoule{E})$ est relativement compact. Donc
 	$\lambda S$ est compact.
 
 	-- Montrons que $\GScompactHomo{E}{F}$ est fermé.
@@ -126,7 +155,7 @@ La propriété d'être un opérateur compact est aussi stable par composition.
 \begin{proposition}
 	On a $\GSfiniteRankHomo{E}{F} \subseteq \GScompactHomo{E}{F}$. C'est-à-dire
 	que tout opérateur linéaire continue de $E$ dans $F$ avec une image de
-	dimension finies est compact.
+	dimension finie est compact.
 \end{proposition}
 
 \begin{proof}
@@ -216,6 +245,14 @@ Banach!
 
 	Par \ref{prop:fixe_point_closed_injective}, comme $T$ est injective sur $G$,
 	on a $T(E)$ qui est fermé.
+	\begin{enumerate}
+		\item
+
+		\item
+
+		\item Remarquons que l'égalité n'est qu'une conséquence de
+			\ref{ex:ker_image_ortho_adjointe}.
+	\end{enumerate}
 \end{proof}
 
 %\begin{proposition}
@@ -329,14 +366,19 @@ Prop 2.1.7 !!!!
 
 Rappelons que la boule unité fermée est compacte uniquement en dimension finie.
 
+Comme mentionné le titre de la section, on étudiera le cas des opérateurs
+comapcts uniquement sur le corps des réels ou le corps des complexes. La
+distinctions sera faite en spécifiant $\real$ ou $\complex$, sinon, le symbole
+$\mathbb{K}$ sera utilisé pour désigner $\real$ ou $\complex$.
+
 \begin{definition}
 	Soit $T \in \GScontinueEndo{E}$.
 
 	On définit \textbf{le résolvant de $T$} par l'ensemble:
 
 	\begin{equation}
-		\resolvant{T} = \GSset{\lambda \in \complex}{T - \lambda
-			{Id}_{E} \in \GSisomorphism{E}}
+		\resolvant{T} = \GSset{\lambda \in \complex}{(T - \lambda
+			{Id}_{E}) \in \GSisomorphism{E}}
 			\label{def:resolvant_operator}
 	\end{equation}
 
@@ -348,7 +390,7 @@ Rappelons que la boule unité fermée est compacte uniquement en dimension finie
 	On a donc que le spectre de $T$:
 
 	\begin{equation}
-		\spectrum{T} = \GSset{\lambda \in \complex}{T - \lambda {Id}_{E}
+		\spectrum{T} = \GSset{\lambda \in \complex}{(T - \lambda {Id}_{E})
 		\notin \GSisomorphism{E}}
 		\label{def:spectrum_operator}
 	\end{equation}
@@ -359,7 +401,7 @@ Le spectre est donc un sous-ensemble de $\complex$.
 L'exemple du shift nous montre que les valeurs propres ne couvrent pas tout le
 spectre.
 Cependant, comme nous l'avons vu, le spectre et les valeurs propres forment le
-même ensemble en dimension finie vu le théorème du rang.
+même ensemble en dimension finie (théorème du rang).
 
 \begin{proposition}
 	Soit $T \in \GScontinueEndo{E}$.
@@ -378,9 +420,9 @@ même ensemble en dimension finie vu le théorème du rang.
 Nous avons donc que le spectre de $T$ contient toutes les valeurs propres de
 $T$.
 
-Les isométries de $E$ sont étroitement liées à la norme définie sur $E$. On peut
-donc penser que le spectre diffère d'une norme à l'autre, ou du moins qu'elle a
-un lien avec la topologie de la norme définie sur $E$.
+Les isomorphismes de $E$ sont étroitement liées à la norme définie sur $E$. On
+peut donc penser que le spectre diffère d'une norme à l'autre, ou du moins
+qu'elle a un lien avec la topologie de la norme définie sur $E$.
 
 Le spectre est en effet liée à la topologie, et possède une propriété commune à
 chaque norme.
@@ -408,8 +450,8 @@ donner quelques rappels.
 	On a pour tout $\lambda, \mu \in \resolvant{T}$:
 
 	\begin{equation}
-		R_{\lambda}(T) - R_{\mu}(T) = (\lambda - \mu) R_{\lambda}(T) \circ
-		R_{\mu}(T)
+		R_{\lambda}(T) - R_{\mu}(T) = (\lambda - \mu) (R_{\lambda}(T) \circ
+		R_{\mu}(T))
 	\end{equation}
 \end{proposition}
 
@@ -465,3 +507,4 @@ définit comme \textbf{le rayon spectrale de $T$}.
 
 
 % Proposition 2.1.5 pour utiliser ce qu'on a vu en cours.
+\subsection{Spectre d'un opérateur compact dans un espace de Hilbert}
