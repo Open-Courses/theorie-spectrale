@@ -55,20 +55,20 @@ Hilbert.
 	Soit $T \in \GScontinueHomo{E}{F}$ où $E$ et $F$ sont deux espaces
 	vectoriels normés.
 
-	Alors $T$ est dit \textbf{compacte} si $T(\GSunitBoule{E})$ est relativement compacte
+	Alors $T$ est dit \textbf{compacte} si $T(\GSclosedUnitBoule{E})$ est relativement compacte
 	dans $F$.
 \end{definition}
 
 De manière équivalente, on peut définir les opérateurs compacts comme les
-opérateurs envoyant toutes parties bornées dans une partie relativement
+opérateurs envoyant l'adhérence de toutes parties bornées dans une partie relativement
 compacte (exercice).
-En particulier, la définition avec la boule unité ouverte peut
-être remplacée par la boule unité fermée.
 
 On note $\GScompactHomo{E}{F}$ l'ensemble des opérateurs compactes.
 
 Montrons d'abord qu'en dimension finie, tous les opérateurs linéaires sont
 compacts.
+
+-- Structure des opérateurs compacts.
 
 \begin{proposition}
 	Soit $T \in \GShomomorphisme{E}{F}$ où $E$ et $F$ sont de dimension finie.
@@ -83,7 +83,8 @@ compacts.
 \end{proof}
 
 On a donc en particulier que $\GScompactHomo{E}{F}$ est fermé en dimension
-finie. On peut montrer que cette propriété est vraie, qu'importe la dimension de
+finie, et qu'en plus, c'est un espace vectoriel.
+On peut montrer que cette propriété est vraie, qu'importe la dimension de
 $E$ et $F$.
 
 \begin{proposition}
@@ -102,10 +103,10 @@ $E$ et $F$.
 	\mathbb{K}$, nous devons montrer que $S + T$ est compact ainsi que $\lambda S$
 	est compact.
 
-	On a $\adh{(S + T)(\GSunitBoule{E})} =  \adh{S(\GSunitBoule{E}) +
-	T(\GSunitBoule{E})} \subseteq \adh{S(\GSunitBoule{E})} +
-	\adh{T(\GSunitBoule{E})}$. La compacité étant stable par somme, on a bien
-	que $(S + T)$ est compact car $(S + T)(\GSunitBoule{E})$ est relativement
+	On a $\adh{(S + T)(\GSclosedUnitBoule{E})} =  \adh{S(\GSclosedUnitBoule{E}) +
+	T(\GSclosedUnitBoule{E})} \subseteq \adh{S(\GSclosedUnitBoule{E})} +
+	\adh{T(\GSclosedUnitBoule{E})}$. La compacité étant stable par somme, on a bien
+	que $(S + T)$ est compact car $(S + T)(\GSclosedUnitBoule{E})$ est relativement
 	compacte.
 
 	On a $(\lambda S)(\GSunitBoule{E}) = S(\lambda \GSunitBoule{E})$ par
@@ -328,6 +329,7 @@ Banach!
 \end{proof}
 
 \begin{corollary}
+	\label{cor:ker_im_stationnaire}
 	Soit $K \in \GScompactEndo{E}$ et $T$ son opérateur de point fixe.
 
 	Alors $\exists n_{0} \in \naturel$ tel que $\ker(T^{n}) = \ker(T^{n_{0}})$
@@ -355,7 +357,7 @@ Nous sommes maintenant prêt à prouver l'une de nos motivations.
 \end{proposition}
 
 \begin{proof}
-	
+	Par l'absurde, en utilisant \ref{cor:ker_im_stationnaire} 
 \end{proof}
 
 \subsection{Opérateur compact dans un espace de Hilbert}
@@ -400,6 +402,12 @@ Le spectre est donc un sous-ensemble de $\complex$.
 
 L'exemple du shift nous montre que les valeurs propres ne couvrent pas tout le
 spectre.
+
+\begin{exercice}
+	Calculer les valeurs propres de l'opérateur de shift à droite, et son
+	spectre (disque unité).
+\end{exercice}
+
 Cependant, comme nous l'avons vu, le spectre et les valeurs propres forment le
 même ensemble en dimension finie (théorème du rang).
 
