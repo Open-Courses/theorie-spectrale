@@ -10,7 +10,7 @@
 
 \begin{definition}
 	Un produit scalaire hermitien est une fonction
-	
+
 	\begin{equation}
 		\GSfunction{\dotprod{.}{.}}{\Hilbert \cartprod
 		\Hilbert}{\complex} :
@@ -52,9 +52,10 @@ quelconques.
 	Soient $E$ et $F$ deux espaces vectoriels. Soient $\GSdual{E}$ et
 	$\GSdual{F}$ leur espace dual respectif.
 	Soit $T \in \GScontinueHomo{E}{F}$. On définit \textbf{l'adjointe de $T$},
-	noté $T^{*}$:
+	notée $\GSortho{T}$:
 	\begin{equation}
-		\GSfunction{T}{\GSdual{F}}{\GSdual{E}} : f^{*} \rightarrow \adjointe{T}(f^{*})
+		\GSfunction{\GSortho{T}}{\GSdual{F}}{\GSdual{E}} : f^{*} \rightarrow
+		\GSortho{T}(f^{*})
 	= f^{*} \circ T
 		\label{def:adjointe_operator}
 	\end{equation}
@@ -74,9 +75,29 @@ manipuler:
 
 	\begin{equation}
 		\forall x \in \Hilbert, \, \forall y \in \mathcal{K}, \,
-		{\dotprod{T(x)}{y}}_{\mathcal{K}} = {\dotprod{x}{\adjointe{T}(y)}}_{\Hilbert}
+		{\dotprod{y}{T(x)}}_{\mathcal{K}} = {\dotprod{\adjointe{T}(y)}{x}}_{\Hilbert}
 	\end{equation}
 \end{definition}
+
+Nous nous intéresserons particulièrement au cas $\Hilbert = \mathcal{K}$ (bien
+que certaines propositions soient vraies quand on prend deux espaces de hilbert
+différents.
+
+Nous nous intéressons maintenant à relier les deux définitions d'adjointe donnée
+par \ref{def:adjointe_dual_space} et \ref{def:adjointe_hilbert_space}.
+
+\begin{proposition}
+	La définition \ref{def:adjointe_hilbert_space} peut être définie à partir de
+	\ref{def:adjointe_dual_space} par:
+	\begin{equation}
+		\adjointe{T} = {(i_{\Hilbert})}^{-1} \circ \GSortho{T} \circ
+		{(i_{\mathcal{K}})}
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
 
 \begin{proposition}
 	Montrer l'unicité de l'application dans la définition
@@ -84,17 +105,9 @@ manipuler:
 \end{proposition}
 
 \begin{proof}
-	On utilise la linéaire et la propriété du produit scalaire d'être définie
-	positive.
+	L'unicité découle de la construction dans la définition
+	\ref{def:adjointe_dual_space}.
 \end{proof}
-
-Nous nous intéresserons particulièrement au cas $\Hilbert = \mathcal{K}$ (bien
-que certaines propositions soient vraies quand on prend deux espaces de hilbert
-différents.
-
-\begin{proposition}
-	Les deux définitions de l'adjointe coincident après identification.
-\end{proposition}
 
 On peut alors définir l'application:
 
@@ -107,6 +120,7 @@ Cette fonction $\phi$ possède quelques propriétés
 
 \begin{proposition}
 \begin{enumerate}
+	\item C'est une isométrie.
 	\item $\forall S, T \in \GScontinueEndo{\Hilbert}$, $\phi(S + T) =
 		\phi(S) + \phi(T)$
 	\item $\forall S, T \in \GScontinueEndo{\Hilbert}$, $\phi(S \circ T) = \phi(T)
@@ -119,10 +133,11 @@ Cette fonction $\phi$ possède quelques propriétés
 \end{proposition}
 
 \begin{proof}
-	On utilise la définition \ref{def:adjointe_hilbert_space}, et l'unicité.
+	Voir page 8, prop 1.1.3
 \end{proof}
 
 On peut alors classer les opérateurs suivant leurs relations avec leur adjointe.
+Nous allons maintenant considérer le cas où $\Hilbert = \mathcal{K}$.
 
 \begin{definition}
 	Soit $T \in \GScontinueEndo{\Hilbert}$ et $\adjointe{T}$ son adjointe. On
@@ -147,16 +162,23 @@ On peut alors classer les opérateurs suivant leurs relations avec leur adjointe
 	$T(G) \subseteq G \equiv T^{*}(\GSortho{G}) \subseteq \GSortho{G}$.
 \end{exercice}
 
-\begin{exercice}
-	Soit $T$ un opérateur normal. Alors $\ker(T) = \ker(\adjointe{T})$.
-\end{exercice}
-
-\begin{exercice}
+\begin{exercice} [Feuille 2, recto]
 	\label{ex:ker_image_ortho_adjointe}
-	Soit $T \in \GScontinueEndo{\Hilbert}$, et $\adjointe{T}$.
+	Soit $T \in \GScontinueEndo{\Hilbert}$, et $\adjointe{T}$ son adjoint.
 
 	Alors $\ker{\adjointe{T}} = \GSortho{(Im(T))}$.
 \end{exercice}
+
+\begin{exercice}
+	Soit $T$ un opérateur normal et $\adjointe{T}$ son adjoint. Alors $\ker(T) =
+	\ker(\adjointe{T})$.
+\end{exercice}
+
+Donnons des exemples d'opérateurs et calculons leur adjoint.
+
+\begin{exemple}
+	Exemple 3, page 10.
+\end{exemple}
 
 \subsection{Base hilbertienne}
 

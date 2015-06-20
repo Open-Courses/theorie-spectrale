@@ -1,6 +1,6 @@
 \section{Théorie spectrale}
 
-Le bus de cette section va être de retrouver certaines propriétés en dimension
+Le but de cette section va être de retrouver certaines propriétés en dimension
 quelconque que nous avons en dimension finie pour les opérateurs linéaires, et
 qui nous ont permis de construire la théorie spectrale en dimension finie.
 
@@ -97,24 +97,26 @@ $E$ et $F$.
 \end{proposition}
 
 \begin{proof}
-	-- Montrons d'abord que c'est un sous-espace vectoriel.
 
-	Si on prend deux opérateur compacts $S$ et $T$, ainsi que $\lambda \in
-	\mathbb{K}$, nous devons montrer que $S + T$ est compact ainsi que $\lambda S$
-	est compact.
+	Exercice
+   % -- Montrons d'abord que c'est un sous-espace vectoriel.
 
-	On a $\adh{(S + T)(\GSclosedUnitBoule{E})} =  \adh{S(\GSclosedUnitBoule{E}) +
-	T(\GSclosedUnitBoule{E})} \subseteq \adh{S(\GSclosedUnitBoule{E})} +
-	\adh{T(\GSclosedUnitBoule{E})}$. La compacité étant stable par somme, on a bien
-	que $(S + T)$ est compact car $(S + T)(\GSclosedUnitBoule{E})$ est relativement
-	compacte.
+	%Si on prend deux opérateur compacts $S$ et $T$, ainsi que $\lambda \in
+	%\mathbb{K}$, nous devons montrer que $S + T$ est compact ainsi que $\lambda S$
+	%est compact.
 
-	On a $(\lambda S)(\GSunitBoule{E}) = S(\lambda \GSunitBoule{E})$ par
-	linéarité de $S$. Comme $S$ est compact et $\lambda \GSunitBoule{E}$ est
-	bornée, $S(\lambda \GSunitBoule{E})$ est relativement compact. Donc
-	$\lambda S$ est compact.
+	%On a $\adh{(S + T)(\GSclosedUnitBoule{E})} =  \adh{S(\GSclosedUnitBoule{E}) +
+	%T(\GSclosedUnitBoule{E})} \subseteq \adh{S(\GSclosedUnitBoule{E})} +
+	%\adh{T(\GSclosedUnitBoule{E})}$. La compacité étant stable par somme, on a bien
+	%que $(S + T)$ est compact car $(S + T)(\GSclosedUnitBoule{E})$ est relativement
+	%compacte.
 
-	-- Montrons que $\GScompactHomo{E}{F}$ est fermé.
+	%On a $(\lambda S)(\GSunitBoule{E}) = S(\lambda \GSunitBoule{E})$ par
+	%linéarité de $S$. Comme $S$ est compact et $\lambda \GSunitBoule{E}$ est
+	%bornée, $S(\lambda \GSunitBoule{E})$ est relativement compact. Donc
+	%$\lambda S$ est compact.
+
+	%-- Montrons que $\GScompactHomo{E}{F}$ est fermé.
 \end{proof}
 
 La propriété d'être un opérateur compact est aussi stable par composition.
@@ -160,12 +162,12 @@ La propriété d'être un opérateur compact est aussi stable par composition.
 \end{proposition}
 
 \begin{proof}
-	
+
 \end{proof}
 
 \begin{proposition}
 	Soit $E$ et $F$ de dimension finie.
-	
+
 	Alors $\GSfiniteRankHomo{E}{F} = \GScompactHomo{E}{F} =
 	\GScontinueHomo{E}{F} = \GShomomorphisme{E}{F}$
 \end{proposition}
@@ -180,15 +182,26 @@ verra concernant les opérateurs compacts restent vrais dans le cas où les
 espaces de vectoriels sont de dimension finie.
 
 % Vrai ??
-Remarquons une chose importante: nous devons travailler sur des espaces de
-Banach!
+%Remarquons une chose importante: nous devons travailler sur des espaces de
+%Banach!
 
 % ----- Opérateurs de Fredholm
+
+% ----- Début des propositions sur les opérateurs compacts.
+
+\textbf{Mardi 28 avril}
+
+Notation : $\GScompactEndo{E}$
+
+Remarquons que le fait que $\GScompactEndo{E}$ est un espace vectoriel, cela
+implique que $K - \lambda Id_{E}$ ($\lambda \in \complex$) est compact ssi $K
+\in
+\GScompactEndo{E}$.
 
 \begin{definition} [Non officielle]
 	Soit $K \in \GScontinueEndo{E}$. On appelle $T = Id_{E} - K$
 	\textbf{l'opérateur de point fixe de $K$}.
-	
+
 	Cette définition est motivée par le fait qu'on peut voir $\ker(T)$ comme
 	l'ensemble des points fixes de $K$.
 \end{definition}
@@ -201,7 +214,7 @@ Banach!
 	Alors il existe une constance $c > 0$ tel que $\forall x \in F$, $\norm{x}
 	\leq c \norm{T(x)}$.
 
-	De plus $Im(F)$ est fermé.
+	De plus $Im(T)$ est fermé.
 \end{proposition}
 
 \begin{remarque}
@@ -210,7 +223,17 @@ Banach!
 \end{remarque}
 
 \begin{proof}
-	% TODO 
+	Exo
+\end{proof}
+
+\begin{proposition}
+	\label{prop:supplementaire_sev_ferme}
+	Soit $F$ un sous-espace vectoriel fermé de $E$. Alors il existe un
+	supplémentaire topologique $G$ de $F$.
+\end{proposition}
+
+\begin{proof}
+	Exo
 \end{proof}
 
 \begin{proposition}
@@ -219,41 +242,45 @@ Banach!
 \end{proposition}
 
 \begin{proof}
-	Nous allons considérer $\ker(T)$ comme un espace vectoriel normé, et montrer
-	que sa boule unité est compacte. On aura donc que $\ker(T)$ est de
-	dimension finie.
+	- Remarquons qu'en dimension finie, c'est évident (pour la fermeture, si
+	nous sommes dans un espace de banach.)
 
-	Soit $F = \ker(T)$.
-	Prenons un $x \in \GSclosedUnitBoule{F}$. Alors $x = K(x)$ et $\norm{x} = 1$
-	par définition de $F$.
-	Donc $x \in K(E)$, et plus particulièrement, $x \in
-	K(\GSclosedUnitBoule{E})$ car $\norm{x} = 1$.
-	On en conclut que $\GSclosedUnitBoule{F} \subseteq
-	K(\GSclosedUnitBoule{E})$.
+	-- En particulier, toute valeur propre de $K$ est de dimension finie car $K
+	- \lambda Id_{E}$ est compact.
+	%Nous allons considérer $\ker(T)$ comme un espace vectoriel normé, et montrer
+	%que sa boule unité est compacte. On aura donc que $\ker(T)$ est de
+	%dimension finie.
 
-	Par hypothèse, $K$ est un opérateur compact, donc
-	$\adh{K(\GSclosedUnitBoule{E})}$ est compact. D'où, $\GSclosedUnitBoule{F}$
-	est contenu dans un compact, est alors relativement compact, et
-	$\adh{\GSclosedUnitBoule{F}}$ est compact par définition de relativement
-	compact.
+	%Soit $F = \ker(T)$.
+	%Prenons un $x \in \GSclosedUnitBoule{F}$. Alors $x = K(x)$ et $\norm{x} = 1$
+	%par définition de $F$.
+	%Donc $x \in K(E)$, et plus particulièrement, $x \in
+	%K(\GSclosedUnitBoule{E})$ car $\norm{x} = 1$.
+	%On en conclut que $\GSclosedUnitBoule{F} \subseteq
+	%K(\GSclosedUnitBoule{E})$.
 
-	$\GSclosedUnitBoule{F}$ étant fermé, $\adh{\GSclosedUnitBoule{F}} =
-	\GSclosedUnitBoule{F}$. D'où $\GSclosedUnitBoule{F}$ est compact.
+	%Par hypothèse, $K$ est un opérateur compact, donc
+	%$\adh{K(\GSclosedUnitBoule{E})}$ est compact. D'où, $\GSclosedUnitBoule{F}$
+	%est contenu dans un compact, est alors relativement compact, et
+	%$\adh{\GSclosedUnitBoule{F}}$ est compact par définition de relativement
+	%compact.
 
-	% TODO : expliquer l'existence du supplémentaire
-	On sait alors qu'il existe un supplémentaire fermé $G$ tel que $E = \ker{T}
-	\oplus G$. D'où, $T(E) = T(G)$.
+	%$\GSclosedUnitBoule{F}$ étant fermé, $\adh{\GSclosedUnitBoule{F}} =
+	%\GSclosedUnitBoule{F}$. D'où $\GSclosedUnitBoule{F}$ est compact.
 
-	Par \ref{prop:fixe_point_closed_injective}, comme $T$ est injective sur $G$,
-	on a $T(E)$ qui est fermé.
-	\begin{enumerate}
-		\item
+	%On sait alors qu'il existe un supplémentaire fermé $G$ tel que $E = \ker{T}
+	%\oplus G$. D'où, $T(E) = T(G)$.
 
-		\item
+	%Par \ref{prop:fixe_point_closed_injective}, comme $T$ est injective sur $G$,
+	%on a $T(E)$ qui est fermé.
+	%\begin{enumerate}
+		%\item
 
-		\item Remarquons que l'égalité n'est qu'une conséquence de
-			\ref{ex:ker_image_ortho_adjointe}.
-	\end{enumerate}
+		%\item
+
+		%\item Remarquons que l'égalité n'est qu'une conséquence de
+			%\ref{ex:ker_image_ortho_adjointe}.
+	%\end{enumerate}
 \end{proof}
 
 %\begin{proposition}
@@ -264,7 +291,7 @@ Banach!
 %\end{proposition}
 
 %\begin{proof}
-	
+
 %\end{proof}
 
 \begin{exercice}
@@ -275,7 +302,7 @@ Banach!
 	-- $\exists x_{0} \in F$ tel que $d(y, F) = d(x_{0}, F)$
 
 	-- $d(\alpha y, F) = \alpha d(y, F)$
-	
+
 	-- $d(y - x, F) = d(y, F)$
 \end{exercice}
 
@@ -295,8 +322,8 @@ Banach!
 
 \begin{proof}
 	Soient $\epsilon \in ]0, 1[$, et $y_{0} \in G$ tel que $y_{0} \notin F$.
-	
-	On a $d(y_{0}, F) > 0$, et en particulier, on a donc $d(y_{0}, F) < 
+
+	On a $d(y_{0}, F) > 0$, et en particulier, on a donc $d(y_{0}, F) <
 	\frac{d(y_{0},F)}{1 - \epsilon}$ car $\epsilon < 1$.
 
 	Comme $F$ est fermé, on a un $x_{0} \in F$ tel que $d(y_{0}, x_{0}) =
@@ -314,7 +341,7 @@ Banach!
 
 \begin{proposition}
 	Soit $K \in \GScontinueEndo{E}$ et $T$ son opérateur de point fixe.
-	
+
 	Alors il n'existe de pas de chaine infinie strictement croissante de sev
 	fermés $\GSsequence{F}{n}{\naturel}$ tel que $T(F_{n + 1}) \subseteq
 	F_{n}$.
@@ -325,7 +352,7 @@ Banach!
 \end{proposition}
 
 \begin{proof}
-	% TODO
+	Remarquons que le proposition est évidente en dimension finie.
 \end{proof}
 
 \begin{corollary}
@@ -342,7 +369,7 @@ Banach!
 \end{corollary}
 
 \begin{proof}
-	
+
 \end{proof}
 
 Nous sommes maintenant prêt à prouver l'une de nos motivations.
@@ -357,7 +384,7 @@ Nous sommes maintenant prêt à prouver l'une de nos motivations.
 \end{proposition}
 
 \begin{proof}
-	Par l'absurde, en utilisant \ref{cor:ker_im_stationnaire} 
+	Par l'absurde, en utilisant \ref{cor:ker_im_stationnaire}
 \end{proof}
 
 \subsection{Opérateur compact dans un espace de Hilbert}
@@ -369,8 +396,8 @@ Prop 2.1.7 !!!!
 Rappelons que la boule unité fermée est compacte uniquement en dimension finie.
 
 Comme mentionné le titre de la section, on étudiera le cas des opérateurs
-comapcts uniquement sur le corps des réels ou le corps des complexes. La
-distinctions sera faite en spécifiant $\real$ ou $\complex$, sinon, le symbole
+compacts uniquement sur le corps des réels ou le corps des complexes. La
+distinction sera faite en spécifiant $\real$ ou $\complex$, sinon, le symbole
 $\mathbb{K}$ sera utilisé pour désigner $\real$ ou $\complex$.
 
 \begin{definition}
@@ -397,6 +424,8 @@ $\mathbb{K}$ sera utilisé pour désigner $\real$ ou $\complex$.
 		\label{def:spectrum_operator}
 	\end{equation}
 \end{definition}
+
+-- Donner la définition en générale.
 
 Le spectre est donc un sous-ensemble de $\complex$.
 
@@ -449,7 +478,7 @@ donner quelques rappels.
 \end{lemma}
 
 \begin{proof}
-	
+
 \end{proof}
 
 \begin{proposition} [Identité de la résolvante]
@@ -488,7 +517,7 @@ Nous avons maintenant tous les outils pour démontrer
 	montrer que $\spectrum{T}$ est un fermé borné.
 
 	-- $\spectrum{T}$ est borné. Supposons qu'il ne le soit pas, alors on a un
-	$\lambda \in \complex$ tel que $\lambda > \norm{T}$. On a alors 
+	$\lambda \in \complex$ tel que $\lambda > \norm{T}$. On a alors
 \end{proof}
 
 
@@ -508,6 +537,9 @@ Regardons quelque propriétés sur les spectres. Prenons un opérateur $T \in
 Il est parfois utile de pouvoir donner le plus grand élément du spectre de $T$, qu'on
 définit comme \textbf{le rayon spectrale de $T$}.
 
+\begin{proposition}
+	2.2.13
+\end{proposition}
 % Donner la définition et la proposition s'y rapportant
 
 % Exercice 1.4.6
